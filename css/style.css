@@ -1,0 +1,133 @@
+body {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(38, 38, 104, 0.452);
+    background-image: url('../Sprinkle.svg');
+    box-sizing: border-box;
+}
+
+.title {
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: rgb(121, 95, 11);
+}
+.container {
+    width: 70%;
+    margin: 30px auto;
+    margin-top: 2%;
+    padding: 2%;
+    background-color: rgb(243, 245, 247);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    border-radius: 5px;
+    padding: 2% 5%;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+}
+.form input {
+    margin-bottom: 5px;
+    padding: 2%;
+    border: 1px solid rgb(230, 227, 227);
+    outline: none;
+}
+.form input[type="text"] {
+    color: rgb(26, 25, 25);
+    font-size: 1.1rem;
+}
+::placeholder {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+#taskAdder {
+    width: 20%;
+    margin: 0 auto;
+    border: none;
+    padding: 8px 5px;
+    font-size: 1rem;
+    border-radius: 10px;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5%;
+    margin-top:0px;
+}
+.optionBtn1,.optionBtn2, .optionBtn3 {
+    padding: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(17, 88, 90);
+    color: rgb(236, 230, 230);
+    font-size: 1rem;
+    font-weight: 600;
+}
+.optionBtn1{
+    background-color:rgb(70, 99, 180);
+}
+
+.items {
+    list-style-type: none;
+}
+.fa-layer-group{
+    color:#5984e9;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(228, 225, 225, 0.164);
+    border-left:5px solid rgb(168, 167, 167);
+    padding: 12px 5px;
+    margin-top: 25px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.hide-item{
+    display: none;
+}
+.actionBtn {
+    padding: 2px 3px;
+    border-radius: 3px;
+}
+.task {
+    color: #1c3879;
+    font-size: 1.3rem;
+}
+.completeBtn {
+    border: 1px solid green;
+    color: green;
+    margin-right: 5px;
+}
+.updateBtn {
+    border: 1px solid #0aa1dd;
+    color: #0aa1dd;
+    margin-right: 5px;
+}
+.deleteBtn {
+    border: 1px solid red;
+    color: red;
+}
+
+.delete-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10%;
+}
+.delete-container button {
+    padding: 8px 0;
+    background-color: #e63946;
+    /* background-color: rgba(194, 193, 193, 0.712); */
+    border-radius: 5px;
+    color: white;
+    font-size: 0.9rem;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}

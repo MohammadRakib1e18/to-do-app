@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Get Ready!</title>
+        <!-- font awesome  -->
+        <script
+            src="https://kit.fontawesome.com/fa4e882351.js"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="shortcut icon" href="./microsofttododarkmode (1).jpg" type="image/x-icon">
+    </head>
+    <body>
+        <section class="container input">
+            <h2 class="title">To-Do Input</h2>
+            <form class="form box">
+                <input
+                    type="text"
+                    id="new-task"
+                    placeholder="What's your next plan?"
+                    value=""
+                />
+                <button id="taskAdder">Add the new Task</button>
+            </form>
+        </section>
+        
+        
+
+        <section class="container todo-container">
+            <!-- <h2 class="title">TodoList</h2> -->
+            <section class="container options">
+                <button class="optionBtn1">All</button>
+                <button class="optionBtn2">Completed</button>
+                <button class="optionBtn3">Todo</button>
+            </section>
+            <ul class="items">
+                <li class="item hide-item">
+                    <div class="task">
+                        <i class="fa fa-solid fa-layer-group"> </i>
+                        <span>Task 1</span>
+                    </div>
+                    <div class="action">
+                        <button class="actionBtn completeBtn">
+                            <i class="fas fa-trash"></i>completed
+                        </button>
+                        <button class="actionBtn updateBtn">
+                            <i class="fas fa-edit"></i>update
+                        </button>
+                        <button class="actionBtn deleteBtn">
+                            <i class="fas fa-trash"></i>delete
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="container delete-container">
+            <button>Delete Completed Tasks</button>
+            <button>Delete All Tasks</button>
+        </section>
+
+        <script src="script.js"></script>
+    </body>
+</html>
