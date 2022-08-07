@@ -72,6 +72,7 @@ body {
 
 .items {
     list-style-type: none;
+    padding-left: 0;
 }
 .fa-layer-group{
     color:#5984e9;

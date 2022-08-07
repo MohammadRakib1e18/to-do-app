@@ -7,7 +7,29 @@ let newTask = document.querySelector('#new-task');
 let taskAddBtn = document.querySelector('#taskAdder');
 let todoUl = document.querySelector(".items");
 let deleteButton = todoUl.querySelector('.deleteBtn');
-let taskContainer=[];
+let deleteCompleteTask = document.querySelector('#deleteCompleteTask');
+let deleteAllTask = document.querySelector('#deleteAllTask');
+
+let allTaskContainer=[];
+let completeTaskContainer = [];
+let todoTaskContainer = [];
+let tasksLen=0;
+
+let showAllTask = function(flag=1){
+    tasksLen=allTaskContainer.length;
+    if(flag== -1){
+        for(let i=0; i<tasksLen; i++){
+            allTaskContainer[i].remove();
+        }
+        allTaskContainer=[];
+        return;
+    }
+    
+    console.log(tasksLen);
+    for(let i=0; i<tasksLen; i++){
+        todoUl.append(allTaskContainer[i]);
+    }
+}
 
 let newTaskCreate = function(task){
     let newListItem = document.createElement('li');
@@ -62,18 +84,28 @@ let addNewTask = function(event){
     event.preventDefault();
     if(newTask.value.trim() === "") return;
     let createdTask = newTaskCreate(newTask.value);
-    taskContainer.push(createdTask);
-    console.log(taskContainer);
+    allTaskContainer.push(createdTask);
 
-    todoUl.appendChild(createdTask);
+    showAllTask();
     newTask.value="";
+
     bindDelete(createdTask, deleteTask);
+    bindComplete(createdTask, completeTask);
+    // bindUPdate(createdTask, updateTask);
 }
 
 let deleteTask = function(){
     let deleteBtnParent = this.parentNode;
     let deleteLi = deleteBtnParent.parentNode;
+    let temp=[];
+    for(let i=0; i<tasksLen; i++){
+        if(deleteLi != allTaskContainer[i]){
+            temp.push(allTaskContainer[i]);
+        }
+    }
+    allTaskContainer=temp;
     todoUl.removeChild(deleteLi)
+    tasksLen--;
 }
 
 let bindDelete = function(createdTask, dltTask){
@@ -81,8 +113,30 @@ let bindDelete = function(createdTask, dltTask){
     deleteBtn.onclick = dltTask;
 }
 
-deleteButton.addEventListener('click', deleteTask);
+let completeTask = function(){
+    let btnParent = this.parentNode;
+    let listItem = btnParent.parentNode;
+    let task = listItem.querySelector('.task');
+    let symbol=task.querySelector('i');
+    symbol.style.display="none";
+
+    let text = listItem.querySelector('span');
+    text.style.color="green";
+    text.style.textDecoration="line-through";
+}
+
+let bindComplete = function(createdTask, cmpltTask){
+    let completeBtn = createdTask.querySelector('.completeBtn');
+    completeBtn.onclick = completeTask;
+}
+
+let deleteAll = function(){
+    showAllTask(-1);
+}
+
+
 form.addEventListener('submit', addNewTask);
+deleteAllTask.addEventListener('click', deleteAll);
 
 
 
