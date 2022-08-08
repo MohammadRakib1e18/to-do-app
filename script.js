@@ -170,9 +170,6 @@ let optionBtn1Click = function () {
     document.querySelector(".optionBtn3").className = "optionBtn3";
 
     tasksLen = allTaskContainer.length;
-    // for (let i = 0; i < tasksLen; i++) {
-    //     todoUl.removeChild(allTaskContainer[i]);
-    // }
     for (let i = 0; i < tasksLen; i++) {
         todoUl.append(allTaskContainer[i]);
     }
@@ -185,10 +182,7 @@ let optionBtn2Click = function () {
 
     tasksLen = allTaskContainer.length;
     for (let i = 0; i < tasksLen; i++) {
-        if (allTaskContainer[i].indexId == -1) {
-            todoUl.append(allTaskContainer[i]);
-            // console.log("rakib");
-        }
+        todoUl.append(allTaskContainer[i]);
     }
     for (let i = 0; i < tasksLen; i++) {
         if (allTaskContainer[i].indexId != -1) {
@@ -204,15 +198,14 @@ let optionBtn3Click = function () {
 
     tasksLen = allTaskContainer.length;
     for (let i = 0; i < tasksLen; i++) {
+        todoUl.append(allTaskContainer[i]);
+    }
+    for (let i = 0; i < tasksLen; i++) {
         if (allTaskContainer[i].indexId == -1) {
             todoUl.removeChild(allTaskContainer[i]);
         }
     }
-    for (let i = 0; i < tasksLen; i++) {
-        if (allTaskContainer[i].indexId != -1) {
-            todoUl.append(allTaskContainer[i]);
-        }
-    }
+    
 };
 
 form.addEventListener("submit", addNewTask);
