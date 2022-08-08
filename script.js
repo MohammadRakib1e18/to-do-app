@@ -15,14 +15,13 @@ let optionButton3 = document.querySelector(".optionBtn3");
 let uniqueId = 1;
 
 let allTaskContainer = [];
-let todoTaskContainer = [];
 let tasksLen = 0;
 
 let showAllTask = function (flag = 1) {
     tasksLen = allTaskContainer.length;
     if (flag === -1) {
         for (let i = 0; i < tasksLen; i++) {
-            allTaskContainer[i].remove();
+            todoUl.removeChild(allTaskContainer[i]);
         }
         allTaskContainer = [];
         return;
@@ -42,11 +41,6 @@ let showAllTask = function (flag = 1) {
         for (let i = 0; i < tasksLen; i++) {
             todoUl.append(allTaskContainer[i]);
         }
-        return;
-    }
-
-    for (let i = 0; i < tasksLen; i++) {
-        todoUl.append(allTaskContainer[i]);
     }
 };
 
@@ -108,7 +102,6 @@ let addNewTask = function (event) {
     createdTask.indexId = uniqueId++;
     allTaskContainer.push(createdTask);
 
-    // showAllTask();
     optionBtn1Click();
     newTask.value = "";
 
@@ -155,13 +148,13 @@ let bindComplete = function (createdTask, cmpltTask) {
     completeBtn.onclick = completeTask;
 };
 
-// let deleteAll = function () {
-//     showAllTask(-1);
-// };
+let deleteAll = function () {
+    showAllTask(-1);
+};
 
-// let deleteComplete = function () {
-//     showAllTask(0);
-// };
+let deleteComplete = function () {
+    showAllTask(0);
+};
 
 let optionBtn1Click = function () {
     let currentOption = document.querySelector(".optionBtn1");
@@ -209,8 +202,8 @@ let optionBtn3Click = function () {
 };
 
 form.addEventListener("submit", addNewTask);
-// deleteAllTask.addEventListener("click", deleteAll);
-// deleteCTask.addEventListener("click", deleteComplete);
+deleteAllTask.addEventListener("click", deleteAll);
+deleteCTask.addEventListener("click", deleteComplete);
 optionButton1.addEventListener("click", optionBtn1Click);
 optionButton2.addEventListener("click", optionBtn2Click);
 optionButton3.addEventListener("click", optionBtn3Click);
