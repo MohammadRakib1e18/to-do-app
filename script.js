@@ -7,25 +7,43 @@ let newTask = document.querySelector('#new-task');
 let taskAddBtn = document.querySelector('#taskAdder');
 let todoUl = document.querySelector(".items");
 let deleteButton = todoUl.querySelector('.deleteBtn');
-let deleteCompleteTask = document.querySelector('#deleteCompleteTask');
+let deleteCTask = document.querySelector('#deleteCompleteTask');
 let deleteAllTask = document.querySelector('#deleteAllTask');
+let uniqueId=1;
 
 let allTaskContainer=[];
-let completeTaskContainer = [];
 let todoTaskContainer = [];
 let tasksLen=0;
 
 let showAllTask = function(flag=1){
     tasksLen=allTaskContainer.length;
-    if(flag== -1){
+    if(flag === -1){
         for(let i=0; i<tasksLen; i++){
             allTaskContainer[i].remove();
         }
         allTaskContainer=[];
         return;
     }
+    if(!flag){
+        let temp=[];
+
+        for(let i=0; i<tasksLen; i++){
+            if(allTaskContainer[i].indexId == -1){
+                todoUl.removeChild(allTaskContainer[i]);
+            }
+            else{
+                temp.push(allTaskContainer[i]);
+            }
+            
+        }
+        allTaskContainer=temp;
+        tasksLen=temp.length;
+        for(let i=0; i<tasksLen; i++){
+            todoUl.append(allTaskContainer[i]);
+        }
+        return;
+    }
     
-    console.log(tasksLen);
     for(let i=0; i<tasksLen; i++){
         todoUl.append(allTaskContainer[i]);
     }
@@ -84,6 +102,9 @@ let addNewTask = function(event){
     event.preventDefault();
     if(newTask.value.trim() === "") return;
     let createdTask = newTaskCreate(newTask.value);
+    
+    if(!allTaskContainer.length) uniqueId=0;
+    createdTask.indexId= uniqueId++;
     allTaskContainer.push(createdTask);
 
     showAllTask();
@@ -116,6 +137,8 @@ let bindDelete = function(createdTask, dltTask){
 let completeTask = function(){
     let btnParent = this.parentNode;
     let listItem = btnParent.parentNode;
+    listItem.indexId=-1;// flagged as completed task
+
     let task = listItem.querySelector('.task');
     let symbol=task.querySelector('i');
     symbol.style.display="none";
@@ -134,9 +157,14 @@ let deleteAll = function(){
     showAllTask(-1);
 }
 
+let deleteComplete = function(){
+    showAllTask(0);
+}
+
 
 form.addEventListener('submit', addNewTask);
 deleteAllTask.addEventListener('click', deleteAll);
+deleteCTask.addEventListener('click', deleteComplete);
 
 
 

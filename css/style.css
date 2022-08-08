@@ -18,11 +18,11 @@ body {
     width: 70%;
     margin: 30px auto;
     margin-top: 2%;
-    padding: 2%;
+    padding: 1% 2%;
     background-color: rgb(243, 245, 247);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     border-radius: 5px;
-    padding: 2% 5%;
+    padding: 1.5% 5%;
 }
 .form {
     display: flex;
@@ -68,6 +68,11 @@ body {
 }
 .optionBtn1{
     background-color:rgb(70, 99, 180);
+}
+
+.todo-container{
+    height:40vh;
+    overflow-y: scroll;
 }
 
 .items {
