@@ -108,7 +108,8 @@ let addNewTask = function (event) {
     createdTask.indexId = uniqueId++;
     allTaskContainer.push(createdTask);
 
-    showAllTask();
+    // showAllTask();
+    optionBtn1Click();
     newTask.value = "";
 
     bindDelete(createdTask, deleteTask);
@@ -154,55 +155,59 @@ let bindComplete = function (createdTask, cmpltTask) {
     completeBtn.onclick = completeTask;
 };
 
-let deleteAll = function () {
-    showAllTask(-1);
-};
+// let deleteAll = function () {
+//     showAllTask(-1);
+// };
 
-let deleteComplete = function () {
-    showAllTask(0);
-};
+// let deleteComplete = function () {
+//     showAllTask(0);
+// };
 
 let optionBtn1Click = function () {
-    let currentOption = document.querySelector('.optionBtn1');
+    let currentOption = document.querySelector(".optionBtn1");
     currentOption.className = "optionBtn1 selectOptonBtn";
-    document.querySelector('.optionBtn2').className="optionBtn2";
-    document.querySelector('.optionBtn3').className="optionBtn3";
-    
-    tasksLen = allTaskContainer.length;
-    tasksLen = allTaskContainer.length;
-    for (let i = 0; i < tasksLen; i++) {
-        todoUl.removeChild(allTaskContainer[i]);
-    }
-    for (let i = 0; i < tasksLen; i++) {
-        todoUl.append(allTaskContainer[i]);
-    }
-};
-let optionBtn2Click = function () {
-    let currentOption = document.querySelector('.optionBtn2');
-    currentOption.className = "optionBtn2 selectOptonBtn";
-    document.querySelector('.optionBtn1').className="optionBtn1";
-    document.querySelector('.optionBtn3').className="optionBtn3";
-    
-    tasksLen = allTaskContainer.length;
-    for (let i = 0; i < tasksLen; i++) {
-        todoUl.removeChild(allTaskContainer[i]);
-    }
-    for (let i = 0; i < tasksLen; i++) {
-        if (allTaskContainer[i].indexId == -1) {
-            todoUl.append(allTaskContainer[i]);
-        }
-    }
-};
-let optionBtn3Click = function () {
-    let currentOption = document.querySelector('.optionBtn3');
-    currentOption.className = "optionBtn3 selectOptonBtn";
-    document.querySelector('.optionBtn1').className="optionBtn1";
-    document.querySelector('.optionBtn2').className="optionBtn2";
+    document.querySelector(".optionBtn2").className = "optionBtn2";
+    document.querySelector(".optionBtn3").className = "optionBtn3";
 
     tasksLen = allTaskContainer.length;
     // for (let i = 0; i < tasksLen; i++) {
     //     todoUl.removeChild(allTaskContainer[i]);
     // }
+    for (let i = 0; i < tasksLen; i++) {
+        todoUl.append(allTaskContainer[i]);
+    }
+};
+let optionBtn2Click = function () {
+    let currentOption = document.querySelector(".optionBtn2");
+    currentOption.className = "optionBtn2 selectOptonBtn";
+    document.querySelector(".optionBtn1").className = "optionBtn1";
+    document.querySelector(".optionBtn3").className = "optionBtn3";
+
+    tasksLen = allTaskContainer.length;
+    for (let i = 0; i < tasksLen; i++) {
+        if (allTaskContainer[i].indexId == -1) {
+            todoUl.append(allTaskContainer[i]);
+            // console.log("rakib");
+        }
+    }
+    for (let i = 0; i < tasksLen; i++) {
+        if (allTaskContainer[i].indexId != -1) {
+            todoUl.removeChild(allTaskContainer[i]);
+        }
+    }
+};
+let optionBtn3Click = function () {
+    let currentOption = document.querySelector(".optionBtn3");
+    currentOption.className = "optionBtn3 selectOptonBtn";
+    document.querySelector(".optionBtn1").className = "optionBtn1";
+    document.querySelector(".optionBtn2").className = "optionBtn2";
+
+    tasksLen = allTaskContainer.length;
+    for (let i = 0; i < tasksLen; i++) {
+        if (allTaskContainer[i].indexId == -1) {
+            todoUl.removeChild(allTaskContainer[i]);
+        }
+    }
     for (let i = 0; i < tasksLen; i++) {
         if (allTaskContainer[i].indexId != -1) {
             todoUl.append(allTaskContainer[i]);
@@ -211,8 +216,8 @@ let optionBtn3Click = function () {
 };
 
 form.addEventListener("submit", addNewTask);
-deleteAllTask.addEventListener("click", deleteAll);
-deleteCTask.addEventListener("click", deleteComplete);
+// deleteAllTask.addEventListener("click", deleteAll);
+// deleteCTask.addEventListener("click", deleteComplete);
 optionButton1.addEventListener("click", optionBtn1Click);
 optionButton2.addEventListener("click", optionBtn2Click);
 optionButton3.addEventListener("click", optionBtn3Click);
