@@ -13,6 +13,8 @@ let optionButton1 = document.querySelector(".optionBtn1");
 let optionButton2 = document.querySelector(".optionBtn2");
 let optionButton3 = document.querySelector(".optionBtn3");
 let uniqueId = 1;
+let currentButton = 1;
+let isRegister = false;
 
 let allTaskContainer = [];
 let tasksLen = 0;
@@ -46,7 +48,7 @@ let showAllTask = function (flag = 1) {
 
 let newTaskCreate = function (task) {
     let newListItem = document.createElement("li");
-    newListItem.className = "item";
+    newListItem.className = "item bg-white";
 
     let div1 = document.createElement("div");
     let div1Symbol = document.createElement("i");
@@ -104,6 +106,7 @@ let addNewTask = function (event) {
 
     optionBtn1Click();
     newTask.value = "";
+    addBtnBlur();
 
     bindDelete(createdTask, deleteTask);
     bindComplete(createdTask, completeTask);
@@ -141,6 +144,7 @@ let completeTask = function () {
     let text = listItem.querySelector("span");
     text.style.color = "green";
     text.style.textDecoration = "line-through";
+    if (currentButton === 3) optionBtn3Click();
 };
 
 let bindComplete = function (createdTask, cmpltTask) {
@@ -157,6 +161,7 @@ let deleteComplete = function () {
 };
 
 let optionBtn1Click = function () {
+    currentButton = 1;
     let currentOption = document.querySelector(".optionBtn1");
     currentOption.className = "optionBtn1 selectOptonBtn";
     document.querySelector(".optionBtn2").className = "optionBtn2";
@@ -168,6 +173,7 @@ let optionBtn1Click = function () {
     }
 };
 let optionBtn2Click = function () {
+    currentButton = 2;
     let currentOption = document.querySelector(".optionBtn2");
     currentOption.className = "optionBtn2 selectOptonBtn";
     document.querySelector(".optionBtn1").className = "optionBtn1";
@@ -184,6 +190,7 @@ let optionBtn2Click = function () {
     }
 };
 let optionBtn3Click = function () {
+    currentButton = 3;
     let currentOption = document.querySelector(".optionBtn3");
     currentOption.className = "optionBtn3 selectOptonBtn";
     document.querySelector(".optionBtn1").className = "optionBtn1";
@@ -198,9 +205,56 @@ let optionBtn3Click = function () {
             todoUl.removeChild(allTaskContainer[i]);
         }
     }
-    
 };
 
+// let showName = function () {
+//     let registerBtn = document.querySelector("#registerBtn");
+//     let firstName = document.querySelector("#firstName");
+//     let modalSubmitDiv = document.querySelector('.modalSubmitDiv');
+//     let submitButton = modalSubmitDiv.querySelector('#modalSubmit');
+//     submitButton.setAttribute('data-bs-dismiss', 'modal');
+//     console.log(submitButton);
+//     // userIcodn.setAttribute('display', 'block');
+//     // modalSubmit.setAttribute('data-bs-dismiss', "modal");
+//     // registerBtn.append(user);
+//     // console.log(user);
+//     registerBtn.className = "ms-3 btn text-light";
+//     register.style.cursor = "default";
+//     registerBtn.style.cursor = "default";
+//     registerBtn.innerText = firstName.value;
+// };
+
+let showName = function (event) {
+    event.preventDefault();
+
+    let modalSubmit = document.querySelector("#modalSubmit");
+    let modalShow = document.querySelector("#modalShow");
+    let userFirstName = document.querySelector("#firstName");
+    let userSecondName = document.querySelector("#secondName");
+    let modal = document.querySelector(".modal");
+
+    let userName = userFirstName.value + " " + userSecondName.value+" ";
+    if(userName.length>16) userName = 'Anonymous ';
+    // modalShow.innerText = userName
+    modalShow.className = 'ms-3 btn btn-outline-secondary text-light';
+    modalShow.innerHTML = `
+        <i class="fas fa-user-alt"></i>
+        ${userName}
+    `
+
+    // modalShow.append(userIcon);
+    modalSubmit.setAttribute("data-bs-dismiss", "modal");
+
+    modalSubmit.innerText = "Close";
+    modalSubmit.className = "btn btn-danger";
+
+    modal.setAttribute("id", "disabledModal");
+};
+
+let modalForm = document.querySelector(".modalForm");
+modalForm.addEventListener("submit", showName);
+
+// modalSubmit.addEventListener("click", showName);
 form.addEventListener("submit", addNewTask);
 deleteAllTask.addEventListener("click", deleteAll);
 deleteCTask.addEventListener("click", deleteComplete);
@@ -209,14 +263,20 @@ optionButton2.addEventListener("click", optionBtn2Click);
 optionButton3.addEventListener("click", optionBtn3Click);
 
 let addBtnFocused = function () {
-    taskAddBtn.style.backgroundColor = "#1C3879";
-    taskAddBtn.style.color = "white";
+    if (newTask.value != "") {
+        taskAddBtn.style.backgroundColor = "#1C3879";
+        taskAddBtn.style.color = "white";
+    } else {
+        addBtnBlur();
+    }
 };
 let addBtnBlur = function () {
-    taskAddBtn.style.backgroundColor = "rgba(71, 73, 161, 0.61)";
-    taskAddBtn.style.color = "white";
+    if (newTask.value == "") {
+        taskAddBtn.style.backgroundColor = "#BEBBBB";
+        taskAddBtn.style.color = "white";
+    }
 };
 
-newTask.addEventListener("focus", addBtnFocused);
+newTask.addEventListener("input", addBtnFocused);
 newTask.addEventListener("blur", addBtnBlur);
 addBtnBlur();

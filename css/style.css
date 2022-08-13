@@ -7,6 +7,19 @@ body {
     box-sizing: border-box;
 }
 
+nav{
+    z-index: 5;
+}
+.options{
+    z-index: 2;
+}
+.nav-link{
+    background-color: rgba(189, 188, 192, 0.048);
+}
+.nav-link:hover{
+    background-color: rgba(192, 188, 188, 0.226);
+}
+
 .title {
     text-align: center;
     font-weight: 900;
@@ -23,6 +36,9 @@ body {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     border-radius: 5px;
     padding: 1.5% 5%;
+}
+.delete-container{
+    margin-top: -30px;
 }
 .form {
     display: flex;
@@ -61,18 +77,18 @@ body {
     padding: 10px 5px;
     border: none;
     border-radius: 5px;
-    background-color: rgb(17, 88, 90);
+    background-color: rgb(6, 143, 148);
     color: rgb(236, 230, 230);
     font-size: 1rem;
     font-weight: 600;
 }
 .selectOptonBtn{
-    background-color:rgb(70, 99, 180);
+    background-color:rgb(37, 89, 167);
 }
 
 .todo-container{
-    height:40vh;
-    overflow-y: scroll;
+    height:400px;
+    overflow-y: auto;
 }
 
 .items {
@@ -108,15 +124,18 @@ body {
     border: 1px solid green;
     color: green;
     margin-right: 5px;
+    font-size:12px;
 }
 .updateBtn {
     border: 1px solid #0aa1dd;
     color: #0aa1dd;
     margin-right: 5px;
+    font-size:12px;
 }
 .deleteBtn {
     border: 1px solid red;
     color: red;
+    font-size:12px;
 }
 
 .delete-container {
@@ -126,14 +145,22 @@ body {
 }
 .delete-container button {
     padding: 8px 0;
-    background-color: #e63946;
+    background-color: #f77a84;
     /* background-color: rgba(194, 193, 193, 0.712); */
     border-radius: 5px;
     color: white;
-    font-size: 0.9rem;
+    font-size: 1rem;
     border: none;
+}
+.delete-container button:hover{
+    background-color: #e63946;
 }
 
 button:hover {
     cursor: pointer;
 }
+
+.userIcon{
+    display: none;
+}
+
