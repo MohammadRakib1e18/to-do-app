@@ -37,9 +37,24 @@ nav{
     border-radius: 5px;
     padding: 1.5% 5%;
 }
-.delete-container{
-    margin-top: -30px;
+.input{
+    background-color: #051f3b;
+
 }
+.todo-container{
+    height:500px;
+    overflow-y: auto;
+    background-color: #051d38;
+}
+.delete-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10%;
+    margin-top: -30px;
+    border-top: 2px solid rgb(235, 229, 229);
+    background-color: #0519309d;
+}
+
 .form {
     display: flex;
     flex-direction: column;
@@ -84,11 +99,6 @@ nav{
 }
 .selectOptonBtn{
     background-color:rgb(37, 89, 167);
-}
-
-.todo-container{
-    height:400px;
-    overflow-y: auto;
 }
 
 .items {
@@ -138,11 +148,6 @@ nav{
     font-size:12px;
 }
 
-.delete-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10%;
-}
 .delete-container button {
     padding: 8px 0;
     background-color: #f77a84;
@@ -163,4 +168,5 @@ button:hover {
 .userIcon{
     display: none;
 }
+
 

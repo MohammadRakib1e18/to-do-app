@@ -97,6 +97,7 @@ let newTaskCreate = function (task) {
 
 let addNewTask = function (event) {
     event.preventDefault();
+
     if (newTask.value.trim() === "") return;
     let createdTask = newTaskCreate(newTask.value);
 
@@ -233,26 +234,32 @@ let showName = function (event) {
     let userSecondName = document.querySelector("#secondName");
     let modal = document.querySelector(".modal");
 
-    let userName = userFirstName.value + " " + userSecondName.value+" ";
-    if(userName.length>16) userName = 'Anonymous ';
-    // modalShow.innerText = userName
-    modalShow.className = 'ms-3 btn btn-outline-secondary text-light';
+    let userName = userFirstName.value + " " + userSecondName.value + " ";
+    if (userName.length > 16) userName = "Anonymous ";
+    modalShow.className = "ms-3 btn btn-outline-secondary text-light";
     modalShow.innerHTML = `
         <i class="fas fa-user-alt"></i>
         ${userName}
-    `
-
-    // modalShow.append(userIcon);
+    `;
     modalSubmit.setAttribute("data-bs-dismiss", "modal");
 
     modalSubmit.innerText = "Close";
     modalSubmit.className = "btn btn-danger";
 
-    modal.setAttribute("id", "disabledModal");
+    if (modalShow.getAttribute("data-bs-target") == null) {
+        modalShow.setAttribute('title', "hello rakib");
+
+    }
+    else{
+        modalShow.removeAttribute("data-bs-toggle");
+        modalShow.removeAttribute("data-bs-target");
+    }
 };
 
 let modalForm = document.querySelector(".modalForm");
 modalForm.addEventListener("submit", showName);
+// taskAddBtn.addEventListener("submit", showName);
+// modalForm.removeEventListener("submit", showName);
 
 // modalSubmit.addEventListener("click", showName);
 form.addEventListener("submit", addNewTask);
@@ -264,7 +271,7 @@ optionButton3.addEventListener("click", optionBtn3Click);
 
 let addBtnFocused = function () {
     if (newTask.value != "") {
-        taskAddBtn.style.backgroundColor = "#1C3879";
+        taskAddBtn.style.backgroundColor = "#3B9AE1";
         taskAddBtn.style.color = "white";
     } else {
         addBtnBlur();
@@ -272,7 +279,8 @@ let addBtnFocused = function () {
 };
 let addBtnBlur = function () {
     if (newTask.value == "") {
-        taskAddBtn.style.backgroundColor = "#BEBBBB";
+        taskAddBtn.style.backgroundColor = "#0E2A47";
+        // taskAddBtn.style.backgroundColor = "#3B9AE1";
         taskAddBtn.style.color = "white";
     }
 };

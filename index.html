@@ -95,8 +95,7 @@
                                         ms-3
                                         btn
                                         text-light
-                                        bg-info
-                                        bg-opacity-75
+                                        bg-info bg-opacity-75
                                     "
                                     data-bs-toggle="modal"
                                     data-bs-target="#staticBackdrop"
@@ -189,7 +188,6 @@
                                 <button
                                     id="modalSubmit"
                                     class="btn btn-primary"
-                                    data-bs-dismiss=""
                                 >
                                     submit
                                 </button>
@@ -201,7 +199,7 @@
         </div>
 
         <section class="container input">
-            <h2 class="title">To-Do Input</h2>
+            <h2 class="title text-light opacity-50">To-Do Input</h2>
             <form class="form box">
                 <input
                     type="text"
@@ -213,7 +211,7 @@
             </form>
         </section>
 
-        <section class="container todo-container bg-dark bg-opacity-50">
+        <section class="container todo-container">
             <!-- <h2 class="title">TodoList</h2> -->
             <section class="container options sticky-top bg-dark bg-opacity-75">
                 <button class="optionBtn1">All</button>
@@ -241,10 +239,7 @@
             </ul>
         </section>
 
-        <section
-            id="clear"
-            class="container delete-container bg-info bg-opacity-10 px-3"
-        >
+        <section id="clear" class="container delete-container px-5">
             <button id="deleteCompleteTask">Delete Completed Tasks</button>
             <button id="deleteAllTask">Delete All Tasks</button>
         </section>
