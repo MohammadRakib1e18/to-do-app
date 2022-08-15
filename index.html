@@ -110,7 +110,38 @@
         </nav>
         <!-- navbar ends  -->
 
-        <!-- Modal -->
+        <!-- Modal(already registerted) -->
+        <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="m-auto w-75 text-muted modal-title text-center" id="exampleModalLabel">
+                            <i class="fas fa-check-circle me-2"></i>Registration Status
+                        </h6>
+                        <i
+                            type="button"
+                            class="fs-3  fas fa-times"
+                            data-bs-dismiss="modal"
+                        ></i>
+                    </div>
+                    <div class="modal-body text-center">
+                        <!-- <h1 class="d-block fas fa-check-circle text-success"></h1> -->
+                        <img id="successImg1" src="./giphy.webp" class="rounded-2 img-thumbnail img-fluid m-atuo" alt="">
+                        <img id="successImg2" src="./progress-icon-gif-10.jpg" class="rounded-2 img-thumbnail img-fluid m-auto" alt="">
+                        
+                        <h1 class="fw-bold mt-3"><span class="text-dark"> Already</span><span class="text-danger"> registerted!</span></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal(registration pop up) -->
         <div
             class="modal fade mainModal"
             id="staticBackdrop"
@@ -207,7 +238,7 @@
                     placeholder="What's your next plan?"
                     value=""
                 />
-                <button id="taskAdder">Add the new Task</button>
+                <button disabled id="taskAdder">Add the new Task</button>
             </form>
         </section>
 
@@ -240,8 +271,8 @@
         </section>
 
         <section id="clear" class="container delete-container px-5">
-            <button id="deleteCompleteTask">Delete Completed Tasks</button>
-            <button id="deleteAllTask">Delete All Tasks</button>
+            <button id="deleteCompleteTask"><i class="fas fa-exclamation-triangle me-2"></i>Delete Completed Tasks</button>
+            <button id="deleteAllTask"><i class=" fas fa-exclamation-triangle me-2"></i>Delete All Tasks</button>
         </section>
 
         <div class="container-fluid bg-dark text-white" id="about">

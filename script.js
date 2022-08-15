@@ -15,6 +15,8 @@ let optionButton3 = document.querySelector(".optionBtn3");
 let uniqueId = 1;
 let currentButton = 1;
 let isRegister = false;
+let toggle = 0;
+
 
 let allTaskContainer = [];
 let tasksLen = 0;
@@ -228,11 +230,12 @@ let optionBtn3Click = function () {
 let showName = function (event) {
     event.preventDefault();
 
+    isRegister=true;
+
     let modalSubmit = document.querySelector("#modalSubmit");
     let modalShow = document.querySelector("#modalShow");
     let userFirstName = document.querySelector("#firstName");
     let userSecondName = document.querySelector("#secondName");
-    let modal = document.querySelector(".modal");
 
     let userName = userFirstName.value + " " + userSecondName.value + " ";
     if (userName.length > 16) userName = "Anonymous ";
@@ -246,11 +249,30 @@ let showName = function (event) {
     modalSubmit.innerText = "Close";
     modalSubmit.className = "btn btn-danger";
 
-    if (modalShow.getAttribute("data-bs-target") == null) {
-        modalShow.setAttribute('title', "hello rakib");
+    taskAddBtn.removeAttribute("disabled");
 
-    }
-    else{
+    if (modalShow.getAttribute("data-bs-target") == null) {
+        modalShow.setAttribute("title", "hello rakib");
+        modalShow.setAttribute("data-bs-toggle", "modal");
+        modalShow.setAttribute("data-bs-target", "#exampleModal");
+
+        // success img show
+        let successImg1 = document.querySelector("#successImg1");
+        let successImg2 = document.querySelector("#successImg2");
+        modalShow.addEventListener("click", function () {
+            if (toggle%2) {
+                successImg1.style.display = "block";
+                successImg2.style.display = "none";
+                console.log("odd: ", toggle);
+                toggle++;
+            } else {
+                successImg2.style.display = "block";
+                successImg1.style.display = "none";
+                console.log("even: ", toggle);
+                toggle++;
+            }
+        });
+    } else {
         modalShow.removeAttribute("data-bs-toggle");
         modalShow.removeAttribute("data-bs-target");
     }
@@ -269,6 +291,11 @@ optionButton1.addEventListener("click", optionBtn1Click);
 optionButton2.addEventListener("click", optionBtn2Click);
 optionButton3.addEventListener("click", optionBtn3Click);
 
+
+taskAddBtn.addEventListener('mouseover', function(){
+    if(isRegister) taskAddBtn.style.cursor = "pointer";
+})
+
 let addBtnFocused = function () {
     if (newTask.value != "") {
         taskAddBtn.style.backgroundColor = "#3B9AE1";
@@ -280,7 +307,6 @@ let addBtnFocused = function () {
 let addBtnBlur = function () {
     if (newTask.value == "") {
         taskAddBtn.style.backgroundColor = "#0E2A47";
-        // taskAddBtn.style.backgroundColor = "#3B9AE1";
         taskAddBtn.style.color = "white";
     }
 };
