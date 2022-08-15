@@ -100,7 +100,7 @@ let addNewTask = function (event) {
     event.preventDefault();
 
     if (newTask.value.trim() === "") return;
-    if(!isRegister) return;
+    if (!isRegister) return;
     let createdTask = newTaskCreate(newTask.value);
 
     if (!allTaskContainer.length) uniqueId = 0;
@@ -113,7 +113,30 @@ let addNewTask = function (event) {
 
     bindDelete(createdTask, deleteTask);
     bindComplete(createdTask, completeTask);
-    // bindUPdate(createdTask, updateTask);
+    bindUpdate(createdTask, updateTask);
+};
+
+let updateTask = function(){
+    console.log(this);
+    let modalBodyInput  = document.querySelector('#updateModalBody input');
+    let currentToDoTextSpan= this.parentNode.previousSibling.querySelector('span');
+    let currentText = currentToDoTextSpan.innerText;
+    
+    modalBodyInput.value = currentText;
+    document.querySelector('#updateModalSave').addEventListener('click', function(){
+        if(modalBodyInput.value.length>30){
+            currentToDoTextSpan.innerText = modalBodyInput.value.slice(0,30) + '...';
+            currentToDoTextSpan.setAttribute('title', modalBodyInput.value);
+        }
+        else currentToDoTextSpan.innerText = modalBodyInput.value;
+    })
+}
+
+let bindUpdate = function (createdTask, updateTask) {
+    let updater = createdTask.querySelector('.updateBtn');
+    updater.setAttribute('data-bs-toggle', 'modal');
+    updater.setAttribute('data-bs-target', '#updateModal');
+    updater.onclick = updateTask;
 };
 
 let deleteTask = function () {
@@ -210,23 +233,6 @@ let optionBtn3Click = function () {
     }
 };
 
-// let showName = function () {
-//     let registerBtn = document.querySelector("#registerBtn");
-//     let firstName = document.querySelector("#firstName");
-//     let modalSubmitDiv = document.querySelector('.modalSubmitDiv');
-//     let submitButton = modalSubmitDiv.querySelector('#modalSubmit');
-//     submitButton.setAttribute('data-bs-dismiss', 'modal');
-//     console.log(submitButton);
-//     // userIcodn.setAttribute('display', 'block');
-//     // modalSubmit.setAttribute('data-bs-dismiss', "modal");
-//     // registerBtn.append(user);
-//     // console.log(user);
-//     registerBtn.className = "ms-3 btn text-light";
-//     register.style.cursor = "default";
-//     registerBtn.style.cursor = "default";
-//     registerBtn.innerText = firstName.value;
-// };
-
 let showName = function (event) {
     event.preventDefault();
 
@@ -248,7 +254,6 @@ let showName = function (event) {
 
     modalSubmit.innerText = "Close";
     modalSubmit.className = "btn btn-danger";
-
 
     if (modalShow.getAttribute("data-bs-target") == null) {
         modalShow.setAttribute("data-bs-toggle", "modal");
@@ -273,7 +278,7 @@ let showName = function (event) {
     } else {
         modalShow.removeAttribute("data-bs-toggle");
         modalShow.removeAttribute("data-bs-target");
-        taskAddBtn.removeAttribute('data-bs-toggle');
+        taskAddBtn.removeAttribute("data-bs-toggle");
         taskAddBtn.removeAttribute("data-bs-target");
     }
 };
@@ -288,14 +293,11 @@ optionButton1.addEventListener("click", optionBtn1Click);
 optionButton2.addEventListener("click", optionBtn2Click);
 optionButton3.addEventListener("click", optionBtn3Click);
 
-
-
 let addBtnFocused = function () {
     if (newTask.value != "") {
         taskAddBtn.style.backgroundColor = "#3B9AE1";
         taskAddBtn.style.color = "white";
-        taskAddBtn.style.cursor = 'pointer';
-
+        taskAddBtn.style.cursor = "pointer";
     } else {
         addBtnBlur();
     }
@@ -304,7 +306,7 @@ let addBtnBlur = function () {
     if (newTask.value == "") {
         taskAddBtn.style.backgroundColor = "#0E2A47";
         taskAddBtn.style.color = "white";
-        taskAddBtn.style.cursor = 'not-allowed';
+        taskAddBtn.style.cursor = "not-allowed";
     }
 };
 

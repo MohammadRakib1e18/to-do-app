@@ -59,7 +59,7 @@ nav{
     display: flex;
     flex-direction: column;
 }
-.form input {
+.form input, input {
     margin-bottom: 5px;
     padding: 2%;
     border: 1px solid rgb(230, 227, 227);

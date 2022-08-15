@@ -75,6 +75,14 @@
                                 <a
                                     class="nav-link rounded-1 me-1 px-2"
                                     aria-current="page"
+                                    href="guidelines.html"
+                                    >Docs</a
+                                >
+                            </li>
+                            <li class="nav-item mb-1">
+                                <a
+                                    class="nav-link rounded-1 me-1 px-2"
+                                    aria-current="page"
                                     href="#about"
                                     >About Us</a
                                 >
@@ -87,6 +95,7 @@
                                     >Clear List</a
                                 >
                             </li>
+
                             <!-- Button trigger modal -->
                             <a href="#register"
                                 ><button
@@ -110,9 +119,53 @@
         </nav>
         <!-- navbar ends  -->
 
-        <!-- Modal(already registerted) -->
+        <!-- Modal(update) -->
         <div
             class="modal fade"
+            id="updateModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5
+                            class="
+                                modal-title
+                                text-muted
+                                modal-title
+                            "
+                            id="exampleModalLabel"
+                        >
+                        <i class="fas fa-user-edit fw-bodler me-1"></i>update the <span class="text-danger">task</span>
+                        </h5>
+                        <i
+                            type="button"
+                            class="fs-4 fas fa-times text-muted fw-semibold "
+                            data-bs-dismiss="modal"
+                        ></i>
+                    </div>
+                    <div id="updateModalBody" class="modal-body fw-semibold fs-4">
+                        <input class="w-100 border border-secondary" type="text" value="">
+                    </div>
+                    <div class=" text-center mb-3">
+                        <button
+                            id="updateModalSave"
+                            type="button"
+                            class="btn btn-outline-primary text-center"
+                            data-bs-dismiss="modal"
+                        >
+                            Save changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal(already registerted) -->
+        <div
+            class="modal fade modalRegis"
             id="exampleModal"
             tabindex="-1"
             aria-labelledby="exampleModalLabel"
