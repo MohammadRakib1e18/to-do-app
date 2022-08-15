@@ -165,11 +165,9 @@ button:hover {
     cursor: pointer;
 }
 #taskAdder:hover{
-    cursor: default;
+    cursor: not-allowed;
 }
 
 .userIcon{
     display: none;
 }
-
-

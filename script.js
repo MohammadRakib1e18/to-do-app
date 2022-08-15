@@ -17,7 +17,6 @@ let currentButton = 1;
 let isRegister = false;
 let toggle = 0;
 
-
 let allTaskContainer = [];
 let tasksLen = 0;
 
@@ -101,6 +100,7 @@ let addNewTask = function (event) {
     event.preventDefault();
 
     if (newTask.value.trim() === "") return;
+    if(!isRegister) return;
     let createdTask = newTaskCreate(newTask.value);
 
     if (!allTaskContainer.length) uniqueId = 0;
@@ -230,7 +230,7 @@ let optionBtn3Click = function () {
 let showName = function (event) {
     event.preventDefault();
 
-    isRegister=true;
+    isRegister = true;
 
     let modalSubmit = document.querySelector("#modalSubmit");
     let modalShow = document.querySelector("#modalShow");
@@ -249,10 +249,8 @@ let showName = function (event) {
     modalSubmit.innerText = "Close";
     modalSubmit.className = "btn btn-danger";
 
-    taskAddBtn.removeAttribute("disabled");
 
     if (modalShow.getAttribute("data-bs-target") == null) {
-        modalShow.setAttribute("title", "hello rakib");
         modalShow.setAttribute("data-bs-toggle", "modal");
         modalShow.setAttribute("data-bs-target", "#exampleModal");
 
@@ -260,7 +258,7 @@ let showName = function (event) {
         let successImg1 = document.querySelector("#successImg1");
         let successImg2 = document.querySelector("#successImg2");
         modalShow.addEventListener("click", function () {
-            if (toggle%2) {
+            if (toggle % 2) {
                 successImg1.style.display = "block";
                 successImg2.style.display = "none";
                 console.log("odd: ", toggle);
@@ -275,15 +273,14 @@ let showName = function (event) {
     } else {
         modalShow.removeAttribute("data-bs-toggle");
         modalShow.removeAttribute("data-bs-target");
+        taskAddBtn.removeAttribute('data-bs-toggle');
+        taskAddBtn.removeAttribute("data-bs-target");
     }
 };
 
 let modalForm = document.querySelector(".modalForm");
 modalForm.addEventListener("submit", showName);
-// taskAddBtn.addEventListener("submit", showName);
-// modalForm.removeEventListener("submit", showName);
 
-// modalSubmit.addEventListener("click", showName);
 form.addEventListener("submit", addNewTask);
 deleteAllTask.addEventListener("click", deleteAll);
 deleteCTask.addEventListener("click", deleteComplete);
@@ -292,14 +289,13 @@ optionButton2.addEventListener("click", optionBtn2Click);
 optionButton3.addEventListener("click", optionBtn3Click);
 
 
-taskAddBtn.addEventListener('mouseover', function(){
-    if(isRegister) taskAddBtn.style.cursor = "pointer";
-})
 
 let addBtnFocused = function () {
     if (newTask.value != "") {
         taskAddBtn.style.backgroundColor = "#3B9AE1";
         taskAddBtn.style.color = "white";
+        taskAddBtn.style.cursor = 'pointer';
+
     } else {
         addBtnBlur();
     }
@@ -308,6 +304,7 @@ let addBtnBlur = function () {
     if (newTask.value == "") {
         taskAddBtn.style.backgroundColor = "#0E2A47";
         taskAddBtn.style.color = "white";
+        taskAddBtn.style.cursor = 'not-allowed';
     }
 };
 
