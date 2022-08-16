@@ -7,6 +7,10 @@ body {
     box-sizing: border-box;
 }
 
+.navbar{
+    background-color: #010e1b;
+}
+
 nav{
     z-index: 5;
 }
@@ -170,4 +174,8 @@ button:hover {
 
 .userIcon{
     display: none;
+}
+
+#about{
+    background-color: #010e1b;
 }
