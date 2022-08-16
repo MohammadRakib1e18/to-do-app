@@ -3,24 +3,27 @@ body {
     margin: 0;
     padding: 0;
     background-color: rgba(38, 38, 104, 0.452);
-    background-image: url('../Sprinkle.svg');
+    background-image: url("../Sprinkle.svg");
     box-sizing: border-box;
 }
 
-.navbar{
-    background-color: #010e1b;
+.navbar {
+    background-color: #021527;
+}
+.options {
+    background-color: #03274960;
 }
 
-nav{
+nav {
     z-index: 5;
 }
-.options{
+.options {
     z-index: 2;
 }
-.nav-link{
+.nav-link {
     background-color: rgba(189, 188, 192, 0.048);
 }
-.nav-link:hover{
+.nav-link:hover {
     background-color: rgba(192, 188, 188, 0.226);
 }
 
@@ -35,18 +38,15 @@ nav{
     width: 70%;
     margin: 30px auto;
     margin-top: 2%;
-    padding: 1% 2%;
-    background-color: rgb(243, 245, 247);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     border-radius: 5px;
     padding: 1.5% 5%;
 }
-.input{
+.input {
     background-color: #051f3b;
-
 }
-.todo-container{
-    height:500px;
+.todo-container {
+    height: 500px;
     overflow-y: auto;
     background-color: #051d38;
 }
@@ -63,7 +63,8 @@ nav{
     display: flex;
     flex-direction: column;
 }
-.form input, input {
+.form input,
+input {
     margin-bottom: 5px;
     padding: 2%;
     border: 1px solid rgb(230, 227, 227);
@@ -72,7 +73,14 @@ nav{
 .form input[type="text"] {
     color: rgb(26, 25, 25);
     font-size: 1.1rem;
+    border: 0;
 }
+[placeholder]:focus::-webkit-input-placeholder {
+    transition: text-indent 2s 0.8s ease-in-out; 
+    text-indent: -100%;
+    opacity: 1;
+ }
+
 ::placeholder {
     font-weight: 500;
     font-size: 0.9rem;
@@ -90,9 +98,12 @@ nav{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 5%;
-    margin-top:0px;
+    margin-top: 0px;
+    padding: 10px;
 }
-.optionBtn1,.optionBtn2, .optionBtn3 {
+.optionBtn1,
+.optionBtn2,
+.optionBtn3 {
     padding: 10px 5px;
     border: none;
     border-radius: 5px;
@@ -101,29 +112,29 @@ nav{
     font-size: 1rem;
     font-weight: 600;
 }
-.selectOptonBtn{
-    background-color:rgb(37, 89, 167);
+.selectOptonBtn {
+    background-color: rgb(37, 89, 167);
 }
 
 .items {
     list-style-type: none;
     padding-left: 0;
 }
-.fa-layer-group{
-    color:#5984e9;
+.fa-layer-group {
+    color: #5984e9;
 }
 
 .item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid rgba(228, 225, 225, 0.164);
-    border-left:5px solid rgb(168, 167, 167);
-    padding: 12px 5px;
+    border: 4px solid rgb(136, 134, 134);
+    padding: 8px;
     margin-top: 25px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 3px rgb(61, 61, 61);
 }
-.hide-item{
+.hide-item {
     display: none;
 }
 .actionBtn {
@@ -138,18 +149,18 @@ nav{
     border: 1px solid green;
     color: green;
     margin-right: 5px;
-    font-size:12px;
+    font-size: 12px;
 }
 .updateBtn {
     border: 1px solid #0aa1dd;
     color: #0aa1dd;
     margin-right: 5px;
-    font-size:12px;
+    font-size: 12px;
 }
 .deleteBtn {
     border: 1px solid red;
     color: red;
-    font-size:12px;
+    font-size: 12px;
 }
 
 .delete-container button {
@@ -161,21 +172,21 @@ nav{
     font-size: 1rem;
     border: none;
 }
-.delete-container button:hover{
+.delete-container button:hover {
     background-color: #a0101c;
 }
 
 button:hover {
     cursor: pointer;
 }
-#taskAdder:hover{
+#taskAdder:hover {
     cursor: not-allowed;
 }
 
-.userIcon{
+.userIcon {
     display: none;
 }
 
-#about{
+#about {
     background-color: #010e1b;
 }

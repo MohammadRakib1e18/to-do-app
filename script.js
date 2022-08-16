@@ -245,7 +245,7 @@ let showName = function (event) {
 
     let userName = userFirstName.value + " " + userSecondName.value + " ";
     if (userName.length > 16) userName = "Anonymous ";
-    modalShow.className = "ms-3 btn btn-outline-secondary text-light";
+    modalShow.className = "ms-3 btn btn-outline-info text-light";
     modalShow.innerHTML = `
         <i class="fas fa-user-alt"></i>
         ${userName}
