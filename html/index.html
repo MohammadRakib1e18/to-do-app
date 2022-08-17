@@ -6,6 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Get Ready!</title>
 
+        <!-- font awesome  -->
+        <script
+            src="https://kit.fontawesome.com/fa4e882351.js"
+            crossorigin="anonymous"
+        ></script>
+
         <!-- bootstrap stylesheet  -->
         <link
             rel="stylesheet"
@@ -17,14 +23,57 @@
         <!-- favicon -->
         <link
             rel="shortcut icon"
-            href="./../images/microsofttododarkmode (1).jpg (1).jpg"
+            href="./../images/microsofttododarkmode (1).jpg"
             type="image/x-icon"
         />
     </head>
     <body>
-        
-        <div id="get-started" class="containe d-flex justify-content-center align-items-center vh-100">
-            <a href="todo.html" class=" mb-5 ms-5 text-light"><button  class="button" role="button">Let's Start</button></a>
+
+        <!-- navbar  -->
+        <div
+            id="nav-container"
+            class="py-2 px-2 d-flex justify-content-between text-decoration-none"
+        >
+            <a
+                id="button"
+                class="rounded rounded-2 btn btn-secondary p-1 px-3 "
+                href="todo.html"
+            >
+                <i class="fas fa-file-signature"></i>
+                Get Ready!
+            </a>
+            <div class="text-end">
+                <a
+                    id="button"
+                    class="rounded rounded-2 btn btn-secondary p-1 px-3"
+                    href="index.html"
+                >
+                    Home
+                </a>
+                <a
+                    id="button"
+                    class="rounded rounded-2 btn btn-secondary p-1 px-3 mx-2"
+                    href="docs.html"
+                >
+                    Docs
+                </a>
+            </div>
+        </div>
+
+        <!-- get started button  -->
+        <div
+            id="get-started"
+            class="
+                containe
+                d-flex
+                justify-content-center
+                align-items-center
+                vh-100
+            "
+        >
+            <a href="todo.html" class="mb-5 ms-5 text-light"
+                ><button class="button" role="button">Let's Start</button></a
+            >
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js

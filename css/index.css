@@ -2,10 +2,30 @@ body {
     border: 0;
     margin: 0;
     padding: 0;
-    background-image: url("./../images/Abstract\ Paper.svg");
     box-sizing: border-box;
+    overflow-y: hidden;
 }
 
+#logo{
+  bacskground-color: #072b559f;
+}
+
+#nav-container{
+  background-color: #03162b;
+}
+
+#button{
+  background-color: rgba(192, 188, 189, 0.048);
+  border: 1px solid #212529;
+}
+#button:hover{
+  border: 1px solid white;
+  background-color: rgba(192, 188, 188, 0.226);
+}
+
+#get-started{
+  background-image: url("./../images/Abstract\ Paper.svg");
+}
 
 /* CSS */
 .button{
