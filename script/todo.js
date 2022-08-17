@@ -271,7 +271,7 @@ let showName = function (event) {
         let successImg1 = document.querySelector("#successImg1");
         let successImg2 = document.querySelector("#successImg2");
         modalShow.addEventListener("click", function () {
-            if (toggle % 2) {
+            if (toggle % 2==0) {
                 successImg1.style.display = "block";
                 successImg2.style.display = "none";
                 console.log("odd: ", toggle);
