@@ -1,12 +1,41 @@
+/*
+    project  : todo app
+    developer: Mohammad Rakib
+    date     : 17-Aug-2022
+*/
+
+/* common styles  */
 body {
     border: 0;
     margin: 0;
     padding: 0;
     background-color: rgba(38, 38, 104, 0.452);
-    background-image: url("../Sprinkle.svg");
+    background-image: url("./../images/Sprinkle.svg");
     box-sizing: border-box;
 }
+.container {
+    width: 70%;
+    margin: 30px auto;
+    margin-top: 2%;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    border-radius: 5px;
+    padding: 1.5% 5%;
+}
+[placeholder]:focus::-webkit-input-placeholder {
+    transition: text-indent 1s 0.4s ease-in-out; 
+    text-indent: -100%;
+    opacity: 1;
+ }
 
+::placeholder {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+button:hover {
+    cursor: pointer;
+}
+
+/* navbar styles  */
 .navbar {
     background-color: #021527;
 }
@@ -25,6 +54,11 @@ nav {
 .nav-link:hover {
     background-color: rgba(192, 188, 188, 0.226);
 }
+.userIcon {
+    display: none;
+}
+
+/* Input-Task section  */
 
 .title {
     text-align: center;
@@ -33,30 +67,20 @@ nav {
     margin-bottom: 10px;
     color: rgb(121, 95, 11);
 }
-.container {
-    width: 70%;
-    margin: 30px auto;
-    margin-top: 2%;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-    border-radius: 5px;
-    padding: 1.5% 5%;
-}
+
 .input {
     background-color: #051f3b;
 }
-.todo-container {
-    height: 500px;
-    overflow-y: auto;
-    background-color: #051d38;
-    
+#taskAdder {
+    width: 20%;
+    margin: 0 auto;
+    border: none;
+    padding: 8px 5px;
+    font-size: 1rem;
+    border-radius: 10px;
 }
-.delete-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10%;
-    margin-top: -30px;
-    border-top: 2px solid rgb(235, 229, 229);
-    background-color: #0519309d;
+#taskAdder:hover {
+    cursor: not-allowed;
 }
 
 .form {
@@ -75,23 +99,13 @@ input {
     font-size: 1.1rem;
     border: 0;
 }
-[placeholder]:focus::-webkit-input-placeholder {
-    transition: text-indent 1s 0.4s ease-in-out; 
-    text-indent: -100%;
-    opacity: 1;
- }
 
-::placeholder {
-    font-weight: 500;
-    font-size: 0.9rem;
-}
-#taskAdder {
-    width: 20%;
-    margin: 0 auto;
-    border: none;
-    padding: 8px 5px;
-    font-size: 1rem;
-    border-radius: 10px;
+/* show task section  */
+.todo-container {
+    height: 500px;
+    overflow-y: auto;
+    background-color: #051d38;
+    
 }
 
 .options {
@@ -137,13 +151,14 @@ input {
 .hide-item {
     display: none;
 }
-.actionBtn {
-    padding: 2px 3px;
-    border-radius: 3px;
-}
+
 .task {
     color: #1c3879;
     font-size: 1.3rem;
+}
+.actionBtn {
+    padding: 2px 3px;
+    border-radius: 3px;
 }
 .completeBtn {
     border: 1px solid green;
@@ -162,29 +177,33 @@ input {
     color: red;
     font-size: 12px;
 }
+/* delete completed and all files section  */
+.delete-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10%;
+    margin-top: -30px;
+    border-top: 2px solid rgb(235, 229, 229);
+    background-color: #0519309d;
+}
 
 .delete-container button {
     padding: 8px 0;
-    background-image: linear-gradient(135deg, #700e16 40%, #aa1522);
+    background-image: linear-gradient(135deg, rgb(27, 38, 54) 30%, rgb(53, 59, 68));
     border-radius: 5px;
-    color: white;
+    color: rgb(212, 18, 18);
     font-size: 1rem;
+    font-weight: 600;
     border: none;
 }
 .delete-container button:hover {
-    background-image: linear-gradient(135deg, #d11928 10%, #700e16);
+    background-image: linear-gradient(135deg, #700e16 10%, #d11928);
+    color: white;
 }
 
-button:hover {
-    cursor: pointer;
-}
-#taskAdder:hover {
-    cursor: not-allowed;
-}
 
-.userIcon {
-    display: none;
-}
+
+/* footer  */
 
 #about {
     background-color: #010e1b;

@@ -1,0 +1,15 @@
+body {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#button{
+    background-image: linear-gradient(135deg, rgb(27, 38, 54) 30%, rgb(53, 59, 68));
+    color: white;
+    border: 1px solid #212529;
+}
+#button:hover{
+    border: 1px solid white;
+}
