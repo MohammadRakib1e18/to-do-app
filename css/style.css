@@ -11,15 +11,14 @@ body {
     background-color: #021527;
 }
 .options {
-    background-color: #03274960;
+    background-color: #051d38;
+    z-index: 2;
 }
 
 nav {
     z-index: 5;
 }
-.options {
-    z-index: 2;
-}
+
 .nav-link {
     background-color: rgba(189, 188, 192, 0.048);
 }
@@ -49,6 +48,7 @@ nav {
     height: 500px;
     overflow-y: auto;
     background-color: #051d38;
+    
 }
 .delete-container {
     display: grid;
@@ -76,7 +76,7 @@ input {
     border: 0;
 }
 [placeholder]:focus::-webkit-input-placeholder {
-    transition: text-indent 2s 0.8s ease-in-out; 
+    transition: text-indent 1s 0.4s ease-in-out; 
     text-indent: -100%;
     opacity: 1;
  }
@@ -107,13 +107,13 @@ input {
     padding: 10px 5px;
     border: none;
     border-radius: 5px;
-    background-color: rgb(6, 143, 148);
+    background-color: #0E2A47;
     color: rgb(236, 230, 230);
     font-size: 1rem;
     font-weight: 600;
 }
 .selectOptonBtn {
-    background-color: rgb(37, 89, 167);
+    background-image: linear-gradient(135deg, #09265c 20%, #4a62cf);
 }
 
 .items {
@@ -165,15 +165,14 @@ input {
 
 .delete-container button {
     padding: 8px 0;
-    background-color: #d8424e;
-    /* background-color: rgba(194, 193, 193, 0.712); */
+    background-image: linear-gradient(135deg, #700e16 40%, #aa1522);
     border-radius: 5px;
     color: white;
     font-size: 1rem;
     border: none;
 }
 .delete-container button:hover {
-    background-color: #a0101c;
+    background-image: linear-gradient(135deg, #d11928 10%, #700e16);
 }
 
 button:hover {

@@ -57,7 +57,14 @@ let newTaskCreate = function (task) {
 
     div1.className = "task";
     div1Symbol.className = "far fa-hand-point-right";
-    span.innerText = " " + task;
+
+    task=task.charAt(0)+task.slice(1).toLowerCase();
+    if(task.length>35){
+        span.innerText =" " + task.slice(0,35) + '...';
+        span.setAttribute('title', task);
+    }
+    else span.innerText = task;
+
     div1.appendChild(div1Symbol);
     div1.appendChild(span);
 
@@ -117,15 +124,16 @@ let addNewTask = function (event) {
 };
 
 let updateTask = function(){
-    console.log(this);
     let modalBodyInput  = document.querySelector('#updateModalBody input');
     let currentToDoTextSpan= this.parentNode.previousSibling.querySelector('span');
     let currentText = currentToDoTextSpan.innerText;
-    
+
+    currentText=currentText.charAt(0)+currentText.slice(1).toLowerCase();
     modalBodyInput.value = currentText;
+
     document.querySelector('#updateModalSave').addEventListener('click', function(){
-        if(modalBodyInput.value.length>30){
-            currentToDoTextSpan.innerText = modalBodyInput.value.slice(0,30) + '...';
+        if(modalBodyInput.value.length>35){
+            currentToDoTextSpan.innerText = modalBodyInput.value.slice(0,35) + '...';
             currentToDoTextSpan.setAttribute('title', modalBodyInput.value);
         }
         else currentToDoTextSpan.innerText = modalBodyInput.value;
