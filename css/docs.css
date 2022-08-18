@@ -19,9 +19,7 @@ body {
     background-color: rgba(192, 188, 188, 0.226);
 }
 
-/* .nav-link {
-    background-color: rgba(189, 188, 192, 0.048);
+iframe{
+    width: 100%;
+    height: 80vh;
 }
-.nav-link:hover {
-    background-color: rgba(192, 188, 188, 0.226);
-} */

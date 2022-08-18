@@ -1,7 +1,11 @@
 /*
+    Project  : Todo App    
+    Release  : 18-Aug-2022    
     Developer: Mohammad Rakib
+    Tools    : HTML, CSS, JavaScript
 */
 
+// necessary variables
 let form = document.querySelector(".form");
 let newTask = document.querySelector("#new-task");
 let taskAddBtn = document.querySelector("#taskAdder");
@@ -12,6 +16,7 @@ let deleteAllTask = document.querySelector("#deleteAllTask");
 let optionButton1 = document.querySelector(".optionBtn1");
 let optionButton2 = document.querySelector(".optionBtn2");
 let optionButton3 = document.querySelector(".optionBtn3");
+let modalForm = document.querySelector(".modalForm");
 let uniqueId = 1;
 let currentButton = 1;
 let isRegister = false;
@@ -20,6 +25,7 @@ let toggle = 0;
 let allTaskContainer = [];
 let tasksLen = 0;
 
+/*========================== <print all tasks> =========================*/
 let showAllTask = function (flag = 1) {
     tasksLen = allTaskContainer.length;
     if (flag === -1) {
@@ -47,6 +53,7 @@ let showAllTask = function (flag = 1) {
     }
 };
 
+/*========================== <create new task> =========================*/
 let newTaskCreate = function (task) {
     let newListItem = document.createElement("li");
     newListItem.className = "item bg-white";
@@ -58,12 +65,11 @@ let newTaskCreate = function (task) {
     div1.className = "task";
     div1Symbol.className = "far fa-hand-point-right";
 
-    task=task.charAt(0)+task.slice(1).toLowerCase();
-    if(task.length>35){
-        span.innerText =" " + task.slice(0,35) + '...';
-        span.setAttribute('title', task);
-    }
-    else span.innerText = task;
+    task = task.charAt(0) + task.slice(1).toLowerCase();
+    if (task.length > 35) {
+        span.innerText = " " + task.slice(0, 35) + "...";
+        span.setAttribute("title", task);
+    } else span.innerText = task;
 
     div1.appendChild(div1Symbol);
     div1.appendChild(span);
@@ -103,6 +109,7 @@ let newTaskCreate = function (task) {
     return newListItem;
 };
 
+/*=================== <time to add the created task> ====================*/
 let addNewTask = function (event) {
     event.preventDefault();
 
@@ -123,30 +130,36 @@ let addNewTask = function (event) {
     bindUpdate(createdTask, updateTask);
 };
 
-let updateTask = function(){
-    let modalBodyInput  = document.querySelector('#updateModalBody input');
-    let currentToDoTextSpan= this.parentNode.previousSibling.querySelector('span');
+/*================= <helps to update the task if you wish> ===================*/
+let updateTask = function () {
+    let modalBodyInput = document.querySelector("#updateModalBody input");
+    let currentToDoTextSpan =
+        this.parentNode.previousSibling.querySelector("span");
     let currentText = currentToDoTextSpan.innerText;
 
-    currentText=currentText.charAt(0)+currentText.slice(1).toLowerCase();
+    currentText = currentText.charAt(0) + currentText.slice(1).toLowerCase();
     modalBodyInput.value = currentText;
 
-    document.querySelector('#updateModalSave').addEventListener('click', function(){
-        if(modalBodyInput.value.length>35){
-            currentToDoTextSpan.innerText = modalBodyInput.value.slice(0,35) + '...';
-            currentToDoTextSpan.setAttribute('title', modalBodyInput.value);
-        }
-        else currentToDoTextSpan.innerText = modalBodyInput.value;
-    })
-}
+    document
+        .querySelector("#updateModalSave")
+        .addEventListener("click", function () {
+            if (modalBodyInput.value.length > 35) {
+                currentToDoTextSpan.innerText =
+                    modalBodyInput.value.slice(0, 35) + "...";
+                currentToDoTextSpan.setAttribute("title", modalBodyInput.value);
+            } else currentToDoTextSpan.innerText = modalBodyInput.value;
+        });
+};
 
+/*=================== <attach update() with the new task> ===================*/
 let bindUpdate = function (createdTask, updateTask) {
-    let updater = createdTask.querySelector('.updateBtn');
-    updater.setAttribute('data-bs-toggle', 'modal');
-    updater.setAttribute('data-bs-target', '#updateModal');
+    let updater = createdTask.querySelector(".updateBtn");
+    updater.setAttribute("data-bs-toggle", "modal");
+    updater.setAttribute("data-bs-target", "#updateModal");
     updater.onclick = updateTask;
 };
 
+/*================= <helps to delete the task if you wish> ===================*/
 let deleteTask = function () {
     let deleteBtnParent = this.parentNode;
     let deleteLi = deleteBtnParent.parentNode;
@@ -161,11 +174,13 @@ let deleteTask = function () {
     tasksLen--;
 };
 
+/*=================== <attach bindDelete() with the new task> ===================*/
 let bindDelete = function (createdTask, dltTask) {
     let deleteBtn = createdTask.querySelector(".deleteBtn");
     deleteBtn.onclick = dltTask;
 };
 
+/*================= <mark the completed the task> ===================*/
 let completeTask = function () {
     let btnParent = this.parentNode;
     let listItem = btnParent.parentNode;
@@ -181,6 +196,7 @@ let completeTask = function () {
     if (currentButton === 3) optionBtn3Click();
 };
 
+/*=================== <attach complete() with the new task> ===================*/
 let bindComplete = function (createdTask, cmpltTask) {
     let completeBtn = createdTask.querySelector(".completeBtn");
     completeBtn.onclick = completeTask;
@@ -192,8 +208,12 @@ let deleteAll = function () {
 
 let deleteComplete = function () {
     showAllTask(0);
+    if(currentButton==2){
+        optionBtn2Click();
+    }
 };
 
+/*=========== <Tab(inside the todo container): show all the tasks> ===========*/
 let optionBtn1Click = function () {
     currentButton = 1;
     let currentOption = document.querySelector(".optionBtn1");
@@ -206,6 +226,8 @@ let optionBtn1Click = function () {
         todoUl.append(allTaskContainer[i]);
     }
 };
+
+/*======== <Tab(inside the todo container): show only the completed tasks> =====*/
 let optionBtn2Click = function () {
     currentButton = 2;
     let currentOption = document.querySelector(".optionBtn2");
@@ -223,6 +245,8 @@ let optionBtn2Click = function () {
         }
     }
 };
+
+/*====== <Tab(inside the todo container): show the remaining todo tasks> =========*/
 let optionBtn3Click = function () {
     currentButton = 3;
     let currentOption = document.querySelector(".optionBtn3");
@@ -241,6 +265,7 @@ let optionBtn3Click = function () {
     }
 };
 
+/*================= <registration ans display user name> ===================*/
 let showName = function (event) {
     event.preventDefault();
 
@@ -271,7 +296,7 @@ let showName = function (event) {
         let successImg1 = document.querySelector("#successImg1");
         let successImg2 = document.querySelector("#successImg2");
         modalShow.addEventListener("click", function () {
-            if (toggle % 2==0) {
+            if (toggle % 2 == 0) {
                 successImg1.style.display = "block";
                 successImg2.style.display = "none";
                 console.log("odd: ", toggle);
@@ -291,16 +316,6 @@ let showName = function (event) {
     }
 };
 
-let modalForm = document.querySelector(".modalForm");
-modalForm.addEventListener("submit", showName);
-
-form.addEventListener("submit", addNewTask);
-deleteAllTask.addEventListener("click", deleteAll);
-deleteCTask.addEventListener("click", deleteComplete);
-optionButton1.addEventListener("click", optionBtn1Click);
-optionButton2.addEventListener("click", optionBtn2Click);
-optionButton3.addEventListener("click", optionBtn3Click);
-
 let addBtnFocused = function () {
     if (newTask.value != "") {
         taskAddBtn.style.backgroundColor = "#3B9AE1";
@@ -318,6 +333,16 @@ let addBtnBlur = function () {
     }
 };
 
+// attach necessary event liseners 
+
+modalForm.addEventListener("submit", showName);
+form.addEventListener("submit", addNewTask);
+deleteAllTask.addEventListener("click", deleteAll);
+deleteCTask.addEventListener("click", deleteComplete);
+optionButton1.addEventListener("click", optionBtn1Click);
+optionButton2.addEventListener("click", optionBtn2Click);
+optionButton3.addEventListener("click", optionBtn3Click);
 newTask.addEventListener("input", addBtnFocused);
 newTask.addEventListener("blur", addBtnBlur);
-addBtnBlur();
+
+addBtnBlur(); // display the default look of the task adder button.

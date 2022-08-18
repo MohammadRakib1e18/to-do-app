@@ -9,7 +9,7 @@ body {
     border: 0;
     margin: 0;
     padding: 0;
-    background-image: url('./../images/Sprinkle.svg');
+    background-image: url("./../images/Sprinkle.svg");
     box-sizing: border-box;
 }
 .container {
@@ -21,10 +21,10 @@ body {
     padding: 1.5% 5%;
 }
 [placeholder]:focus::-webkit-input-placeholder {
-    transition: text-indent 1s 0.4s ease-in-out; 
+    transition: text-indent 1s 0.4s ease-in-out;
     text-indent: -100%;
     opacity: 1;
- }
+}
 
 ::placeholder {
     font-weight: 500;
@@ -57,6 +57,13 @@ nav {
 }
 .userIcon {
     display: none;
+}
+
+.offcanvas{
+    width:40%;
+}
+--bs-ofcanvas-width{
+    
 }
 
 /* Input-Task section  */
@@ -105,8 +112,8 @@ input {
 .todo-container {
     height: 500px;
     overflow-y: auto;
+    padding-bottom: 0;
     background-color: #051d38;
-    
 }
 
 .options {
@@ -122,7 +129,7 @@ input {
     padding: 10px 5px;
     border: none;
     border-radius: 5px;
-    background-color: #0E2A47;
+    background-color: #0e2a47;
     color: rgb(236, 230, 230);
     font-size: 1rem;
     font-weight: 600;
@@ -190,7 +197,11 @@ input {
 
 .delete-container button {
     padding: 8px 0;
-    background-image: linear-gradient(135deg, rgb(27, 38, 54) 30%, rgb(53, 59, 68));
+    background-image: linear-gradient(
+        135deg,
+        rgb(27, 38, 54) 30%,
+        rgb(53, 59, 68)
+    );
     border-radius: 5px;
     color: rgb(212, 18, 18);
     font-size: 1rem;
@@ -202,10 +213,44 @@ input {
     color: white;
 }
 
-
-
 /* footer  */
 
 #about {
     background-color: #010e1b;
+}
+
+/* ========================-<Media Quries>-=========================== */
+
+/* Mobile media queries */
+@media screen and (max-width: 768px) {
+    #taskAdder {
+        width: 80%;
+        padding: 5px 2px;
+    }
+    .options {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 5%;
+        margin-top: 0px;
+        padding: 10px;
+    }
+    .delete-container {
+        grid-template-columns: 1fr;
+        gap: 2%;
+        margin-bottom: 10px;
+    }
+    #deleteCompleteTask{
+        margin-bottom: 2%;
+    }
+}
+
+
+/* laptop  and larger tablet device  */
+@media screen and (min-width: 769px) and (max-width: 1279px) {
+    #taskAdder{
+        width: 50%;
+    }
+    .delete-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 5%;
+    }
 }

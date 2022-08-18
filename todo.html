@@ -46,8 +46,8 @@
                 <div
                     class="
                         offcanvas offcanvas-end
+                        w-50
                         text-bg-dark
-                        w-25
                         bg-dark bg-opacity-100
                     "
                     tabindex="-1"
@@ -65,7 +65,13 @@
                         >
                             <li class="nav-item mb-1">
                                 <a
-                                    class="nav-link rounded-1 me-1 px-2 btn btn-secondary"
+                                    class="
+                                        nav-link
+                                        rounded-1
+                                        me-2
+                                        px-4
+                                        btn btn-secondary
+                                    "
                                     aria-current="page"
                                     href="index.html"
                                     >Home</a
@@ -73,7 +79,13 @@
                             </li>
                             <li class="nav-item mb-1">
                                 <a
-                                    class="nav-link rounded-1 me-1 px-2 btn btn-secondary"
+                                    class="
+                                        nav-link
+                                        rounded-1
+                                        me-2
+                                        px-4
+                                        btn btn-secondary
+                                    "
                                     aria-current="page"
                                     href="docs.html"
                                     >Docs</a
@@ -81,15 +93,44 @@
                             </li>
                             <li class="nav-item mb-1">
                                 <a
-                                    class="nav-link rounded-1 me-1 px-2 btn btn-secondary"
+                                    class="
+                                        nav-link
+                                        rounded-1
+                                        me-2
+                                        px-2
+                                        btn btn-secondary
+                                    "
                                     aria-current="page"
-                                    href="#about"
+                                    href="https://www.linkedin.com/in/mohammad-rakib1/"
+                                    target="_blank"
                                     >About Us</a
                                 >
                             </li>
                             <li class="nav-item mb-1">
                                 <a
-                                    class="nav-link rounded-1 me-1 px-2 btn btn-secondary"
+                                    class="
+                                        nav-link
+                                        rounded-1
+                                        me-2
+                                        px-3
+                                        btn btn-secondary
+                                    "
+                                    aria-current="page"
+                                    href="#clear"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#pricingExampleModal"
+                                    >Pricing</a
+                                >
+                            </li>
+                            <li class="nav-item mb-1">
+                                <a
+                                    class="
+                                        nav-link
+                                        rounded-1
+                                        me-2
+                                        px-2
+                                        btn btn-secondary
+                                    "
                                     aria-current="page"
                                     href="#clear"
                                     >Clear List</a
@@ -97,11 +138,12 @@
                             </li>
 
                             <!-- Button trigger modal -->
-                            <a href="#register"
+                            <a href="#register" class="text-decoration-none"
                                 ><button
                                     id="modalShow"
                                     class="
-                                        ms-3
+                                        nav-link
+                                        px-5 px-lg-3
                                         btn
                                         text-light
                                         bg-info bg-opacity-75
@@ -117,6 +159,55 @@
                 </div>
             </div>
         </nav>
+
+        <!-- Modal(pricing)  -->
+        <!-- Modal -->
+        <div
+            class="modal fade"
+            id="pricingExampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog border border-3 border-light rounded-3 bg-secondary">
+                <div class="modal-content">
+                    <div class="modal-header bg-dark bg-opacity-50">
+                        <h6
+                            class="
+                                w-100
+                                modal-title
+                                fw-bolder
+                                text-warning text-center
+                            "
+                            id="exampleModalLabel"
+                        >
+                            <i class="fas fa-dollar-sign"></i>
+                            Pricing Cost
+                        </h6>
+                    </div>
+                    <div class="modal-body">
+                        <img
+                            src="./images/no-cost.jpg"
+                            class="w-100"
+                            alt=""
+                        />
+                        <div class="mt-3 text-secondary">
+                            <h5 class="border-start border-4 border-secondary rounded-2 shadow-md px-3 py-2">Fill up the <span class="text-danger fw-bolder">registration</span> form</h5>
+                            <h5 class="border-start border-4  border-secondary rounded-2 shadow-md px-3 py-2">Enjoy the ToDo App</h5>
+                        </div>
+                    </div>
+                    <div class="modal-footer bg-dark bg-opacity-50 d-flex justify-content-center">
+                        <button
+                            type="button"
+                            class="btn btn-danger"
+                            data-bs-dismiss="modal"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Modal(update) -->
         <div
@@ -212,8 +303,8 @@
                         />
 
                         <h1 class="fw-bold mt-3">
-                            <span class="text-dark"> Already</span
-                            ><span class="text-danger"> registerted!</span>
+                            <span class="text-dark"> Successfully</span
+                            ><span class="text-danger"> registered!</span>
                         </h1>
                     </div>
                 </div>
@@ -363,7 +454,7 @@
             i) delete all completed task
             ii)delete all the task
         -->
-        <section id="clear" class="container delete-container px-5">
+        <section id="clear" class="container delete-container p-5">
             <button id="deleteCompleteTask">
                 <i class="fas fa-exclamation-triangle me-2"></i>Delete Completed
                 Tasks
@@ -372,7 +463,6 @@
                 <i class="fas fa-exclamation-triangle me-2"></i>Delete All Tasks
             </button>
         </section>
-
 
         <!-- footer  -->
         <div class="mt-5 container-fluid text-white" id="about">
@@ -391,12 +481,12 @@
                         <a
                             href="#home"
                             class="rounded nav-link px-4 text-secondary fw-bold"
-                            >Home</a
+                            >Todo</a
                         >
                     </li>
                     <li class="nav-item">
                         <a
-                            href="#"
+                            href="docs.html"
                             class="rounded nav-link px-4 text-secondary fw-bold"
                             >Features</a
                         >
@@ -405,12 +495,13 @@
                         <a
                             href="#"
                             class="rounded nav-link px-4 text-secondary fw-bold"
-                            >Pricing</a
+                            >Developer</a
                         >
                     </li>
                     <li class="nav-item">
                         <a
-                            href="#"
+                            href="https://www.linkedin.com/in/mohammad-rakib1/"
+                            target="_blank"
                             class="rounded nav-link px-4 text-secondary fw-bold"
                             >About</a
                         >
