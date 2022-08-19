@@ -21,7 +21,7 @@ body {
     padding: 1.5% 5%;
 }
 [placeholder]:focus::-webkit-input-placeholder {
-    transition: text-indent 1s 0.4s ease-in-out;
+    transition: text-indent 0.5s 0.4s ease-in-out;
     text-indent: -100%;
     opacity: 1;
 }

@@ -17,6 +17,7 @@ let optionButton1 = document.querySelector(".optionBtn1");
 let optionButton2 = document.querySelector(".optionBtn2");
 let optionButton3 = document.querySelector(".optionBtn3");
 let modalForm = document.querySelector(".modalForm");
+let tryAgainBtn = document.querySelectorAll("#try-again");
 let uniqueId = 1;
 let currentButton = 1;
 let isRegister = false;
@@ -208,7 +209,7 @@ let deleteAll = function () {
 
 let deleteComplete = function () {
     showAllTask(0);
-    if(currentButton==2){
+    if (currentButton == 2) {
         optionBtn2Click();
     }
 };
@@ -266,12 +267,32 @@ let optionBtn3Click = function () {
 };
 
 /*================= <registration ans display user name> ===================*/
+
+let reTry = function(event){
+    let modalSubmit = document.querySelector("#modalSubmit");
+    document.getElementById("password").value = "";
+    document.getElementById("confirmPassword").value = "";
+    modalSubmit.innerText = "submit";
+    modalSubmit.className = "btn btn-primary";
+    modalSubmit.removeAttribute("data-bs-toggle");
+    modalSubmit.removeAttribute("data-bs-target");
+}
+
 let showName = function (event) {
     event.preventDefault();
+    let modalSubmit = document.querySelector("#modalSubmit");
+    //  matching password and confirm password
+    if (password.value !== confirmPassword.value) {
+        console.log("didn't match");
+        modalSubmit.innerText = "Warning";
+        modalSubmit.className = "btn btn-outline-warning text-light fw-bold";
+        modalSubmit.setAttribute("data-bs-toggle", "modal");
+        modalSubmit.setAttribute("data-bs-target", "#passwordMatchingModal");
+        return;
+    }
 
     isRegister = true;
 
-    let modalSubmit = document.querySelector("#modalSubmit");
     let modalShow = document.querySelector("#modalShow");
     let userFirstName = document.querySelector("#firstName");
     let userSecondName = document.querySelector("#secondName");
@@ -333,8 +354,10 @@ let addBtnBlur = function () {
     }
 };
 
-// attach necessary event liseners 
+// attach necessary event liseners
 
+tryAgainBtn[0].addEventListener("click", reTry);
+tryAgainBtn[1].addEventListener("click", reTry);
 modalForm.addEventListener("submit", showName);
 form.addEventListener("submit", addNewTask);
 deleteAllTask.addEventListener("click", deleteAll);

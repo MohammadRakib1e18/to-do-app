@@ -397,18 +397,20 @@
                                 class="w-100 mb-3 p-1"
                                 placeholder="Email"
                             /> -->
-                            <!-- <input
+                            <input
+                                id="password"
                                 type="password"
                                 required
                                 class="w-100 mb-3 p-1"
                                 placeholder="Password"
                             />
                             <input
+                                id="confirmPassword"
                                 type="password"
                                 required
                                 class="w-100 mb-3 p-1"
                                 placeholder="Confirm Password"
-                            /> -->
+                            />
                             <div
                                 class="
                                     modalSubmitDiv
@@ -431,6 +433,57 @@
                                 </button>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal(passwordMatching) -->
+        <div
+            class="modal fade"
+            id="passwordMatchingModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+            data-bs-backdrop="static"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content border border-2 border-dark">
+                    <div class="modal-header ps-3 bg-dark">
+                        <h6
+                            class="fs-6 modal-title text-muted modal-title"
+                            id="exampleModalLabel"
+                        >
+                            <i
+                                
+                            class="
+                                    fas
+                                    fa-exclamation-triangle
+                                    me-1
+                                    text-danger
+                                "
+                            ></i
+                            >confirm password status
+                        </h6>
+                        <i
+                        id="try-again"    
+                        type="button"
+                            class="fs-4 fas fa-times text-muted fw-semibold"
+                            data-bs-dismiss="modal"
+                        ></i>
+                    </div>
+                    <div class="modal-body fw-semibold fs-4 ps-3">
+                        <h3 class="text-warning fw-bold">Warning!</h3>
+                        <h5 class="text-muted">Passwords didn't match</h5>
+                    </div>
+                    <div class="modal-footer bg-dark">
+                        <button
+                            id="try-again"
+                            data-bs-dismiss="modal"
+                            class="btn btn-outline-secondary fw-bold"
+                        >
+                            Try again
+                        </button>
                     </div>
                 </div>
             </div>
@@ -518,13 +571,28 @@
                     <li class="nav-item">
                         <a
                             href="#home"
-                            class="text-center rounded nav-link px-4 text-secondary fw-bold"
+                            class="
+                                text-center
+                                rounded
+                                nav-link
+                                px-4
+                                text-secondary
+                                fw-bold
+                            "
                             >Todo</a
                         >
                     </li>
                     <li class="nav-item">
                         <a
-                            class="btn text-center rounded nav-link px-4 text-secondary fw-bold"
+                            class="
+                                btn
+                                text-center
+                                rounded
+                                nav-link
+                                px-4
+                                text-secondary
+                                fw-bold
+                            "
                             data-bs-toggle="modal"
                             data-bs-target="#featureExampleModal"
                             >Features</a
@@ -532,8 +600,15 @@
                     </li>
                     <li class="nav-item">
                         <a
-                            
-                            class="btn text-center rounded nav-link px-4 text-secondary fw-bold"
+                            class="
+                                btn
+                                text-center
+                                rounded
+                                nav-link
+                                px-4
+                                text-secondary
+                                fw-bold
+                            "
                             data-bs-toggle="modal"
                             data-bs-target="#developerExampleModal"
                             >Developer</a
@@ -543,8 +618,15 @@
                         <a
                             href="https://www.linkedin.com/in/mohammad-rakib1/"
                             target="_blank"
-                            class="text-center rounded nav-link px-4 text-secondary fw-bold"
-                            >About</a
+                            class="
+                                text-center
+                                rounded
+                                nav-link
+                                px-4
+                                text-secondary
+                                fw-bold
+                            "
+                            >LinkedIn</a
                         >
                     </li>
                 </ul>
@@ -580,22 +662,48 @@
                             "
                             id="exampleModalLabel"
                         >
-                        <i class="text-danger fas fa-award"></i>
+                            <i class="text-danger fas fa-award"></i>
                             Key Features
                         </h5>
-                        <hr>
+                        <hr />
                         <ul class="list-unstyled">
-                            <li><i class="fas fa-adjust"></i> Easy to navigate</li>
-                            <li><i class="fas fa-adjust"></i> High quality without any cost</li>
-                            <li><i class="fas fa-adjust"></i> Responsive layout</li>
-                            <li><i class="fas fa-adjust"></i> Force to do Registration</li>
-                            <li><i class="fas fa-adjust"></i> update and delete specific task</li>
-                            <li><i class="fas fa-adjust"></i> Mark a task 'completed' if one wishes</li>
-                            <li><i class="fas fa-adjust"></i> A video kept in Docs to guide the user</li>
+                            <li>
+                                <i class="fas fa-adjust"></i> Easy to navigate
+                            </li>
+                            <li>
+                                <i class="fas fa-adjust"></i> High quality
+                                without any cost
+                            </li>
+                            <li>
+                                <i class="fas fa-adjust"></i> Responsive layout
+                            </li>
+                            <li>
+                                <i class="fas fa-adjust"></i> Password matching
+                                and Registration
+                            </li>
+                            <li>
+                                <i class="fas fa-adjust"></i> update and delete
+                                specific task
+                            </li>
+                            <li>
+                                <i class="fas fa-adjust"></i> Mark a task
+                                'completed' if one wishes
+                            </li>
+                            <li>
+                                <i class="fas fa-adjust"></i> A video kept in
+                                Docs to guide the user
+                            </li>
                         </ul>
                         <button
                             type="button"
-                            class="mt-4 btn btn-dark fw-bold d-block w-100 mx-auto"
+                            class="
+                                mt-4
+                                btn btn-dark
+                                fw-bold
+                                d-block
+                                w-100
+                                mx-auto
+                            "
                             data-bs-dismiss="modal"
                         >
                             Close

@@ -42,6 +42,14 @@
                 id="button"
                 class="rounded rounded-2 btn btn-secondary p-1 px-3 me-1"
                 data-bs-toggle="modal"
+                data-bs-target="#featureExampleModal"
+            >
+                Features
+            </a>
+            <a
+                id="button"
+                class="rounded rounded-2 btn btn-secondary p-1 px-3 me-1"
+                data-bs-toggle="modal"
                 data-bs-target="#developerExampleModal"
             >
                 Developer
@@ -105,8 +113,88 @@
                 </div>
             </div>
         </div>
+        <!-- Modal(features) -->
+        <div
+            class="modal fade"
+            id="featureExampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div
+                class="
+                    modal-dialog
+                    border border-3 border-secondary
+                    rounded-3
+                    bg-secondary
+                    w-100
+                "
+            >
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h5
+                            class="
+                                w-100
+                                modal-title
+                                fw-bolder
+                                text-info text-center
+                            "
+                            id="exampleModalLabel"
+                        >
+                            <i class="text-danger fas fa-award"></i>
+                            Key Features
+                        </h5>
+                        <hr />
+                        <ul class="list-unstyled">
+                            <li>
+                                <i class="fas fa-adjust"></i> Easy to navigate
+                            </li>
+                            <li>
+                                <i class="fas fa-adjust"></i> High quality
+                                without any cost
+                            </li>
+                            <li>
+                                <i class="fas fa-adjust"></i> Responsive layout
+                            </li>
+                            <li>
+                                <i class="fas fa-adjust"></i> Password matching
+                                and Registration
+                            </li>
+                            <li>
+                                <i class="fas fa-adjust"></i> update and delete
+                                specific task
+                            </li>
+                            <li>
+                                <i class="fas fa-adjust"></i> Mark a task
+                                'completed' if one wishes
+                            </li>
+                            <li>
+                                <i class="fas fa-adjust"></i> A video kept in
+                                Docs to guide the user
+                            </li>
+                        </ul>
+                        <button
+                            type="button"
+                            class="
+                                mt-4
+                                btn btn-dark
+                                fw-bold
+                                d-block
+                                w-100
+                                mx-auto
+                            "
+                            data-bs-dismiss="modal"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <div class="img-fluid text-center mt-4 video-container w-75 m-auto">
+        <h2 class="mt-2 text-center fw-bolder fs-1 text-muted">Let's see The Features</span></h2>
+
+        <div class="img-fluid text-center video-container w-75 m-auto">
             <iframe
                 class="rounded rounded-2 border border-5 border-info"
                 src="https://youtube.com/embed/SKxAAPyfC1M"
