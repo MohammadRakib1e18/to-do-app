@@ -6,6 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Get Ready!</title>
 
+        <!-- font awesome  -->
+        <script
+            src="https://kit.fontawesome.com/fa4e882351.js"
+            crossorigin="anonymous"
+        ></script>
+
         <!-- bootstrap stylesheet  -->
         <link
             rel="stylesheet"
@@ -23,28 +29,81 @@
     <body>
         <div
             id="nav-container"
-        class="
-                py-2
-                pe-3
-                w-100
-                d-block
-                text-decoration-none text-end
-            "
+            class="py-2 pe-3 w-100 d-block text-decoration-none text-end"
         >
             <a
                 id="button"
-                class="rounded rounded-2 btn btn-secondary p-1 px-3"
+                class="rounded rounded-2 btn btn-secondary p-1 px-4 me-2"
                 href="index.html"
             >
                 Home
             </a>
             <a
                 id="button"
-                class="rounded rounded-2 btn btn-secondary p-1 px-3 mx-2"
+                class="rounded rounded-2 btn btn-secondary p-1 px-3 me-1"
+                data-bs-toggle="modal"
+                data-bs-target="#developerExampleModal"
+            >
+                Developer
+            </a>
+            <a
+                id="button"
+                class="rounded rounded-2 btn btn-secondary p-1 px-2 me-2"
                 href="todo.html"
             >
                 Back to Todo List
             </a>
+        </div>
+
+        <!-- Modal(developer) -->
+        <div
+            class="modal fade"
+            id="developerExampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog rounded-3 bg-secondary">
+                <div class="modal-content">
+                    <div class="pt-2 bg-dark">
+                        <span
+                            class="
+                                w-75
+                                d-inline-block
+                                modal-title
+                                fw-bolder
+                                pe-5
+                                text-secondary text-end
+                            "
+                            id="exampleModalLabel"
+                        >
+                            <i class="fas fa-code"></i>
+                            Developer Status
+                        </span>
+                        <i
+                            type="button"
+                            class="
+                                close-button
+                                d-inline-block
+                                text-end
+                                fs-5
+                                text-danger
+                                fas
+                                fa-window-close
+                            "
+                            data-bs-dismiss="modal"
+                        ></i>
+                    </div>
+                    <div class="modal-body bg-dark">
+                        <div>
+                            <iframe
+                                src="https://profile-card-v1.netlify.app/"
+                                title="Iframe Example"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="img-fluid text-center mt-4 video-container w-75 m-auto">
